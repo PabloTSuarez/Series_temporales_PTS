@@ -10,6 +10,7 @@ from statsmodels.tsa.stattools import adfuller
 from statsmodels.graphics.tsaplots import plot_acf
 from pmdarima import auto_arima
 from sklearn.metrics import mean_squared_error,r2_score
+from pickle import dump
 
 
 df = pd.read_csv('https://raw.githubusercontent.com/4GeeksAcademy/alternative-time-series-project/main/sales.csv')
@@ -96,3 +97,5 @@ plt.show()
 
 mean_squared_error(test_df,forecast)
 r2_score(test_df,forecast)
+
+dump(model,open('../models/model_serie_temporal1.model','wb'))
